@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 __global__ void square(float * d_out, float * d_in) {
-    int idx = treadIdx.x;
+    int idx = threadIdx.x;
     float f = d_in[idx];
     d_out[idx] = f * f;
 }
@@ -33,5 +33,5 @@ int main(int argc, char **argv) {
     cudaFree(d_in);
     cudaFree(d_out);
 
-    return 0
+    return 0;
 }
